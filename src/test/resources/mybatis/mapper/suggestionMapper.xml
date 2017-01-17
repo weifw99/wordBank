@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mtime.wordbank.mapper.SuggestionMapper">
+
+	<!--<resultMap type="Suggestion" id="suggestion" >
+		<id column="id" property="id"/>
+		<result column="word_name" property="wordName"/>
+		<result column="user_word_name" property="userWordName"/>
+		<result column="word_pinyin" property="wordPinyin"/>
+		<result column="data_status" property="dataStatus"/>
+		<result column="create_date" property="createdDate"/>
+		<result column="update_data" property="updatedDate"/>
+	</resultMap>
+
+	
+	&lt;!&ndash; 新增&ndash;&gt;
+	<insert id="save" parameterType="Suggestion">
+		insert into suggest_word(
+			id,
+			word_name,
+			user_word_name,
+			word_pinyin,
+			data_status,
+			create_date,
+			update_data
+		) values (
+			#{id},	
+			#{wordName},	
+			#{userWordName},	
+			#{wordPinyin},	
+			#{dataStatus},	
+			#{createdDate},	
+			#{updatedDate}
+		)
+	</insert>
+	
+	&lt;!&ndash; 删除&ndash;&gt;
+	<delete id="deleteAll">
+		delete from suggest_word
+	</delete>
+	&lt;!&ndash; 删除根据id&ndash;&gt;
+	<delete id="deleteByPrimaryKey" parameterType="string">
+		delete from suggest_word
+		where 
+			id = #{id}
+	</delete>
+	
+	
+	&lt;!&ndash; 查询根据id &ndash;&gt;
+	<select id="getById" parameterType="string" resultMap="suggestion">
+		select * from suggest_word
+		where 
+			id = #{id}
+	</select>
+	&lt;!&ndash; 查询所有的 &ndash;&gt;
+	<select id="listQuery" resultMap="suggestion">
+		select * from suggest_word
+	</select>
+	&lt;!&ndash; 查询所有的 &ndash;&gt;
+	<select id="selectAll" resultMap="suggestion">
+		select * from suggest_word
+	</select>
+	
+	<update id="updateByPrimaryKey" parameterType="suggestion">
+		update  suggest_word
+			set 
+				word_name = #{wordName}
+				&lt;!&ndash; PATH = #{PATH},
+				<if test="NAME != null and NAME != ''">
+				NAME = #{NAME},
+				</if>
+				MASTER_ID = #{MASTER_ID},
+				BZ = #{BZ},
+			PICTURES_ID = PICTURES_ID &ndash;&gt;
+			where 
+				id = #{id}
+	</update>
+	-->
+	<!-- 修改 -->
+	<!-- <update id="update" parameterType="suggest_word">
+		update  suggest_word
+			set 
+				TITLE = #{TITLE},
+				PATH = #{PATH},
+				<if test="NAME != null and NAME != ''">
+				NAME = #{NAME},
+				</if>
+				MASTER_ID = #{MASTER_ID},
+				BZ = #{BZ},
+			PICTURES_ID = PICTURES_ID
+			where 
+				PICTURES_ID = #{PICTURES_ID}
+	</update> -->
+	
+	
+	<!-- 通过ID获取数据 -->
+	<!-- <select id="findById" parameterType="pd" resultType="pd">
+		select 
+			TITLE,	
+			NAME,	
+			PATH,	
+			CREATETIME,	
+			MASTER_ID,	
+			BZ,	
+			PICTURES_ID
+		from 
+			suggest_word
+		where 
+			PICTURES_ID = #{PICTURES_ID}
+	</select> -->
+		
+</mapper>

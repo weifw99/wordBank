@@ -1,0 +1,57 @@
+/*
+ * Copyright 2012-2014 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.mtime.wordbank.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
+import java.util.Map;
+
+@Controller
+@RequestMapping("/test")
+public class WelcomeController {
+
+	@Value("${application.message:Hello World}")
+	private String message;
+
+	@RequestMapping("/hello")
+	public String welcome(Map<String, Object> model) {
+		model.put("time", new Date());
+		model.put("message", this.message);
+		System.out.println("============/test/hello=================");
+		return "index";
+		//return "welcome";
+	}
+	@RequestMapping("/word")
+	public String welcome1(Map<String, Object> model) {
+		model.put("time", new Date());
+		model.put("message", this.message);
+		System.out.println("============/test/word=================");
+		return "index";
+		//return "welcome";
+	}
+	@RequestMapping("/word1")
+	@ResponseBody
+	public String welcome2(String id) {
+		System.out.println("============/test/word1=================");
+		return "index" + id;
+	}
+
+}

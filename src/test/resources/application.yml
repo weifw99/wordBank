@@ -1,0 +1,69 @@
+---
+logging:
+  level:
+    org.springframework: DEBUG
+    com.ibatis: DEBUG
+    com.mtime: DEBUG
+---
+---
+server:
+  address: 127.0.0.1
+  port: 8081
+  session:
+    timeout: 30
+  context-path: /word
+---
+---
+context:
+  listener:
+    classes: com.mtime.wordbank.config.ApplicationStartup
+---
+spring:
+    datasource:
+        name: wordbank
+        url: jdbc:mysql://localhost:3306/wordbank
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        # 使用druid数据源
+        #type: com.alibaba.druid.pool.DruidDataSource
+        #配置监控统计拦截的filters，去掉后监控界面sql无法统计,
+        #监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall
+        filters: stat,wall,log4j
+        #配置初始化大小、最小、最大
+        maxActive: 20
+        initialSize: 1
+        minIdle: 1
+        #配置获取连接等待超时的时间
+        maxWait: 60000
+        #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        timeBetweenEvictionRunsMillis: 60000
+        #配置一个连接在池中最小生存的时间，单位是毫秒
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        #打开PSCache，并且指定每个连接上PSCache的大小
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    mvc:
+        view:
+            prefix: /templates/
+            suffix: .ftl
+    freemarker:
+        cache: false
+        request-context-attribute: request
+
+    activemq:
+        broker-url: tcp://localhost:61616 # connection URL
+        user: admin
+        password: admin
+        in-memory: true
+        pooled: false
+
+---
+#mybatis配置
+mybatis:
+  configLocationXml: mybatis/MyBatis-Configuration.xml
+---

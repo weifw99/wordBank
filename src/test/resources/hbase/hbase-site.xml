@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<property>
+		<name>hbase.zookeeper.quorum</name>
+		<!--<value>jx-nn00.host-mtime.com,jx-nn01.host-mtime.com,jx-dn00.host-mtime.com,jx-dn01.host-mtime.com,jx-dn02.host-mtime.com</value>-->
+		<value>db-nn1.inc.mtime.com,db-nn2.inc.mtime.com,db-rm1.inc.mtime.com,db-dn000.inc.mtime.com,db-dn001.inc.mtime.com,db-dn002.inc.mtime.com,db-dn003.inc.mtime.com</value>
+		<!--<value>10.10.11.18,10.10.11.19,10.10.11.20,10.10.11.21,10.10.11.22</value>-->
+		<!--<value>192.168.50.52:2181</value>-->
+		<!--<value>192.168.50.52,192.168.50.56,192.168.50.57</value>-->
+	</property>
+	<property>
+		<name>hbase.zookeeper.property.clientPort</name>
+		<value>2181</value>
+	</property>
+</configuration>
